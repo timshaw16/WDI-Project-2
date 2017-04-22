@@ -7,9 +7,8 @@ function countriesIndex(req, res, next) {
   .catch(next);
 }
 
-// Why is there nothing/what goes in the {}
 function countriesNew(req, res) {
-  res.render('countries/new', { });
+  res.render('countries/new');
 }
 // why is there 'next' but not in the above
 function countriesCreate(req, res, next) {
