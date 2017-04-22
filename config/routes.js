@@ -1,37 +1,35 @@
 const express                   = require('express');
 const router                    = express.Router();
-const countriesController       = require('../controllers/countries');
-const registrationController    = require('../controllers/registration');
-const sessionsController        = require('../controllers/sessions');
+const countries                 = require('../controllers/countries');
+const registrations             = require('../controllers/registrations');
+const sessions        = require('../controllers/sessions');
 
 router.get('/', (req, res) => res.render('statics/home'));
 
 router.route('/countries')
-  .get(countriesController.index)
-  .post(countriesController.create);
+  .get(countries.index)
+  .post(countries.create);
 
 router.route('/countries/new')
-  .get(countriesController.new);
+  .get(countries.new);
 
 router.route('/countries/:id')
-  .get(countriesController.show)
-  .put(countriesController.update)
-  .delete(countriesController.delte);
+  .get(countries.show)
+  .put(countries.update)
+  .delete(countries.delete);
 
 router.route('/countries/:id/edit')
-  .get(countriesController.edit);
+  .get(countries.edit);
 
 router.route('/register')
- .get(registrationController.new)
- .post(registrationController.create);
+ .get(registrations.new)
+ .post(registrations.create);
 
 router.route('/login')
-  .get(sessionsController.new)
-  .post(sessionsController.create);
+  .get(sessions.new)
+  .post(sessions.create);
 
-router.route('/logout')
-  .get(sessionsController.delete);
-
-
+// router.route('/logout')
+//   .get(sessionsController.delete);
 
 module.exports = router;
