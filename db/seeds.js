@@ -27,7 +27,7 @@ Country
     {
       region: 'Europe',
       country: 'Austria',
-      image: 'images/Austria.gif'
+      image: 'images/Austria.png'
     },
     {
       region: 'Europe',

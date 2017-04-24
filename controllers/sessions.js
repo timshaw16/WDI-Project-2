@@ -23,6 +23,7 @@ function sessionsCreate(req, res) {
     });
 }
 
+
 function sessionsDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
 }

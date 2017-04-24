@@ -18,14 +18,19 @@ function countriesCreate(req, res, next) {
   .catch(next);
 }
 
-function countriesShow(req, res, next) {
+function countriesShow(req, res) {
   Country
   .findById(req.params.id)
-  .then((country) => {
-    if(!country) return res.status(404).render('static/404');
-    res.render('countries/show', { country });
+  .exec()
+  .then(country => {
+    if (!country) {
+      return res.render('error', { error: 'No country found!' });
+    }
+    return res.render('countries/show', { country });
   })
-  .catch(next);
+    .catch(err => {
+      return res.render('error', { error: err });
+    });
 }
 
 function countriesEdit(req, res, next) {
