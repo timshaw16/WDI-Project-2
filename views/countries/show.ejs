@@ -1,3 +1,11 @@
 <h1><%= country.country %></h1>
 <p><%= country.region %></p>
 <img src="/<%= country.image %>">
+
+<h2>Resorts</h2>
+<% country.resorts.forEach(resort => { %>
+  <%= resort.name %>
+  <%= resort.website %>
+  <%= resort.lat %>
+  <%= resort.lng %>
+<% }) %>

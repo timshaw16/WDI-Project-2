@@ -1,5 +1,7 @@
-const mongoose    = require('mongoose');
-mongoose.Promise  = require('bluebird');
+const mongoose   = require('mongoose');
+const Promise    = require('bluebird');
+mongoose.Promise = Promise;
+const rp         = require('request-promise');
 
 const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2';
 mongoose.connect(dbURI);
@@ -7,7 +9,7 @@ mongoose.connect(dbURI);
 const User    = require('../models/user');
 const Country = require('../models/country');
 
-// Deletes users and parks
+// // Deletes users and parks
 User.collection.drop();
 Country.collection.drop();
 
@@ -61,7 +63,7 @@ Country
     },
     {
       region: 'North America',
-      country: 'USA',
+      country: 'United States',
       image: 'images/USA.png'
     },
     {
@@ -112,12 +114,97 @@ Country
   ])
   .then(countries => {
     console.log(`${countries.length} were created`);
-    process.exit();
+    return getSkiAreas();
   })
   .catch(err => {
     console.log(`Error: ${err}`);
   })
+  .finally(() => {
+    // mongoose.connection.close();
+  });
 
-.finally(() => {
-  mongoose.connection.close();
-});
+const geocoder = require('node-geocoder')('google', 'https', {timeout: 3000});
+let counter = 0;
+
+// Can improve...
+function getSkiAreas() {
+  return rp({
+    url: 'https://skimap.org/SkiAreas/index.json',
+    json: true
+  })
+  .then(resorts => {
+    return Promise.map(resorts, resort => {
+      const lat = resort['SkiArea'].geo_lat;
+      const lng = resort['SkiArea'].geo_lng;
+      return findCountryAndSave(lat, lng, resort);
+    });
+  })
+  .then(countries => {
+    console.log(`${countries.length} were updated`);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+}
+
+function findCountryAndSave(lat, lng, resort) {
+  if (!lat || !lng) return false;
+  counter++;
+
+  // Something going on with return setTimout
+  console.log('Reversing...', lat, lng, resort);
+  delay(counter)
+    .then(() => {
+      console.log('AFTER WAITING');
+      geocoder
+        .reverse({ lat: lat, lon: lng })
+        .then(data => {
+          if (!data[0].country) {
+            console.log('NO COUNTRY');
+            return;
+          } else {
+            console.log('Country', data[0].country);
+          }
+
+          Country
+            .findOne({ country: data[0].country })
+            .exec()
+            .then(country => {
+              if (!country) {
+                console.log('NO country found?');
+                return;
+              }
+
+              console.log(`Updating ${country.country}`);
+
+              country.resorts.addToSet({
+                name: resort['SkiArea']['name'],
+                website: resort['SkiArea']['official_website'],
+                lat: resort['SkiArea']['geo_lat'],
+                lng: resort['SkiArea']['geo_lng']
+              });
+
+              return country.save();
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        });
+    });
+}
+
+function delay(count) {
+  let ctr, rej;
+
+  const p = new Promise(function (resolve, reject) {
+    ctr = setTimeout(resolve, 500*count);
+    rej = reject;
+  });
+
+  p.cancel = function(){
+    clearTimeout(ctr);
+    rej(Error('Cancelled'));
+  };
+
+  return p;
+}

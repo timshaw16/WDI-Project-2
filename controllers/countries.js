@@ -7,9 +7,14 @@ function countriesIndex(req, res, next) {
   .catch(next);
 }
 
-function countriesNew(req, res) {
-  res.render('countries/new');
+function countriesNew(req, res, next) {
+  try {
+    res.render('countries/new');
+  } catch(e) {
+    next(e);
+  }
 }
+
 // why is there 'next' but not in the above
 function countriesCreate(req, res, next) {
   Country
@@ -23,6 +28,7 @@ function countriesShow(req, res) {
   .findById(req.params.id)
   .exec()
   .then(country => {
+    console.log(country);
     if (!country) {
       return res.render('error', { error: 'No country found!' });
     }

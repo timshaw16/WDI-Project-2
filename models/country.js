@@ -5,7 +5,13 @@ mongoose.Promise  = require('bluebird');
 const countrySchema = new mongoose.Schema({
   region: { type: String, required: true },
   country: { type: String, required: true },
-  image: { type: String, trime: true}
+  image: { type: String, trime: true},
+  resorts: [{
+    name: { type: String, trim: true },
+    website: { type: String, trim: true },
+    lat: { type: String, trim: true },
+    lng: { type: String, trim: true }
+  }]
 }, {
   timestamps: true
 });
