@@ -7,7 +7,11 @@ function registrationsNew(req, res) {
 function registrationsCreate(req, res) {
   User
   .create(req.body)
-  .then(() => res.redirect('/login'))
+  .then((user) => {
+    req.session.userId = user.id;
+    req.flash('info', `Thanks for registering, ${user.username}!`);
+    res.redirect('/');
+  })
   .catch((err) => {
     if (err.name === 'ValidationError') {
       return res.status(400).render('registrations/new', { message: 'Password do not match' });

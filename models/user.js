@@ -2,15 +2,9 @@ const mongoose    = require('mongoose');
 const bcrypt      = require('bcrypt');
 
 const userSchema  = new mongoose.Schema({
-  username: {type: String, required: true },
-  email: { type: String, required: true },
+  username: {type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
-});
-
-// The below is hashing the password before it's sorted to the db
-userSchema.pre('save',function hashPassword(next) {
-  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
-  next();
 });
 
 // The below is hashing a new password which has been changed by the user
@@ -27,6 +21,7 @@ userSchema
 .set(function setPasswordConfirmation(passwordConfirmation){
   this._passwordConfirmation = passwordConfirmation;
 });
+
 // Not sure if I need to check the below
 userSchema.pre('validate', function checkPassword(next) {
   if (this.isModified('password') && this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');

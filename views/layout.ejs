@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <title>WDI Project 2</title>
+  <title>SnowFo</title>
   <link rel="stylesheet" href="/css/main.css">
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -12,8 +12,31 @@
   <script src="/js/client.js" charset="utf-8"></script>
 </head>
 <body>
-  <main>
+  <header>
+    <ul class="navbar-nav mr-auto">
+      <% if (locals.isLoggedIn) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+      <% } %>
+    </ul>
+  </header>
+  <main class="container">
+    <% for (const type in messages) { %>
+      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+    <% } %>
+
     <%- body %>
   </main>
+  <footer>
+    <p>&copy tjshaw.co.uk</p>
+  </footer>
 </body>
 </html>
