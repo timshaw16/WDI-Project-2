@@ -2,7 +2,7 @@ const Country = require('../models/country');
 
 function countriesIndex(req, res, next) {
   Country
-  .find()
+  .findAndGroupByRegion()
   .then((countries) => res.render('countries/index', { countries }))
   .catch(next);
 }

@@ -1,1 +1,14 @@
 <h1>SnowFo</h1>
+
+<ul>
+  <% Object.keys(countries).forEach(region => { %>
+    <li>
+      <h2><%= region %></h2>
+      <ul>
+        <% countries[region].forEach(country => { %>
+          <li><a href="/countries/<%= country.id %>"><%= country.country %></a></li>
+        <% }); %>
+      </ul>
+    </li>
+  <% }); %>
+</ul>
