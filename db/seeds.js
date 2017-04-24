@@ -1,5 +1,5 @@
 const mongoose    = require('mongoose');
-mongoose.Promise  = require('bluebir');
+mongoose.Promise  = require('bluebird');
 
 const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2';
 mongoose.connect(dbURI);
@@ -19,3 +19,7 @@ User
 }])
 .then((user) => {
   console.log(`${user.length} users created`);
+})
+.finally(() => {
+  mongoose.connection.close();
+});
