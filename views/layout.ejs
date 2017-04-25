@@ -14,9 +14,6 @@
 <body>
   <header>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
       <% if (locals.isLoggedIn) { %>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
@@ -34,6 +31,11 @@
       <% } %>
     </ul>
   </header>
+  <div class="line"></div>
+
+      <h1><a class="header" href="/">SnowFo</a></h1>
+
+
   <main class="container">
     <% for (const type in messages) { %>
       <p class="alert alert-<%= type %>"><%= messages[type] %></p>
@@ -42,7 +44,7 @@
     <%- body %>
   </main>
   <footer>
-    <p>&copy tjshaw.co.uk</p>
+    <p>facebook | twitter | instagram <span>&copy tjshaw.co.uk</span></p>
   </footer>
 </body>
 </html>

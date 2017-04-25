@@ -19,7 +19,7 @@ function sessionsCreate(req, res) {
       req.session.userId = user.id;
 
       req.flash('info', `Welcome back, ${user.username}!`);
-      res.redirect('/');
+      res.redirect('/countries');
     });
 }
 
