@@ -1,0 +1,52 @@
+@font-face {
+      font-family: Ormont_Light;
+      src: local(Ormont_Light), url('www.tjshaw.co.uk/font/Ormont_Light.ttf') format('opentype');
+}
+
+h1 {
+  font-family: 'Ormont_Light', Fallback, sans-serif;
+}
+
+h2 {
+  font-family: 'Ormont_Light', Fallback, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+video {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+
+ul.navbar-nav.mr-auto {
+  display: inline;
+}
+
+// li.nav-item {
+//   background-color: ;
+//   color: white;
+// }
+
+
+
+
+// #video-overlay {
+//   position: fixed;
+//   top: 0%;
+//   left: 0%;
+//   min-width: 100%;
+//   min-height: 100%;
+//   width: auto;
+//   height: auto;
+//   z-index: -100;
+//   background-color:#000;
+// }

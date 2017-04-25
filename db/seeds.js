@@ -1,7 +1,7 @@
 const mongoose   = require('mongoose');
 const Promise    = require('bluebird');
 mongoose.Promise = Promise;
-const rp         = require('request-promise');
+// const rp         = require('request-promise');
 
 const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2';
 mongoose.connect(dbURI);
@@ -30,7 +30,7 @@ Country
       region: 'Europe',
       country: 'Austria',
       image: 'images/.png',
-      resorts: [
+      resort: [
         {
           name: 'Kitzbühel',
           website: 'https://www.kitzbuehel.com/en',
@@ -44,7 +44,7 @@ Country
       region: 'Europe',
       country: 'Andorra',
       image: 'images/.png',
-      resorts: [
+      resort: [
         {
           name: 'El Pas de la Casa',
           website: 'https://www.pasdelacasa.com',
@@ -58,13 +58,13 @@ Country
       region: 'Europe',
       country: 'France',
       image: 'images/.png',
-      resorts: [
+      resort: [
         {
-          name: 'El Pas de la Casa',
-          website: 'https://www.pasdelacasa.com',
-          lat: 42.542445,
-          lng: 1.7281864,
-          description: 'The ski resort of Pas de la Casa sits below the pass on the side closest to France, and below the Pic d\'Envalira (2,827 metres (9,275 ft)). It\'s first ski lift was opened in 1957 and it now has 31 lifts, 100 kilometres (62 mi) of pistes and 6.26 square kilometres (2 sq mi) of skiable terrain. The highest skiable point is 2,640 metres (8,661 ft). Its popularity has grown with the burgeoning ski and snowboard industry in the principality: it is the highest resort in Andorra,[citation needed] has the best snow record,[1] and is the easiest to get to from Barcelona or Toulouse airports.'
+          name: 'valmeinier',
+          website: 'http://www.valmeinier.com/uk/index-winter.aspx',
+          lat: 45.1512076,
+          lng: 6.4389113,
+          description: 'Valmeinier is a commune in the Savoie department in the Auvergne-Rhône-Alpes region in south-eastern France. Valmeinier, located at the foot of the Mont Thabor, 3207 meters, is a medium size ski resort'
         }
       ]
     },
@@ -72,7 +72,7 @@ Country
       region: 'Europe',
       country: 'Italy',
       image: 'images/.png',
-      resorts: [
+      resort: [
         {
           name: 'Sauze d\'Oulx',
           website: 'https://www.sauzeonline.com/',
@@ -86,7 +86,7 @@ Country
       region: 'North America',
       country: 'Canada',
       image: 'images/.png',
-      resorts: [
+      resort: [
         {
           name: 'Banff',
           website: 'https://www.banfflakelouise.com/',
@@ -117,7 +117,7 @@ Country
 //     url: 'https://skimap.org/SkiAreas/index.json',
 //     json: true
 //   })
-//   .then(resorts => {
+//   .then(resort => {
 //     return Promise.map(resorts, resort => {
 //       const lat = resort['SkiArea'].geo_lat;
 //       const lng = resort['SkiArea'].geo_lng;

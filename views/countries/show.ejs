@@ -3,9 +3,10 @@
 <img src="/<%= country.image %>">
 
 <h2>Resorts</h2>
-<% country.resorts.forEach(resort => { %>
+<% country.resort.forEach(resort => { %>
   <%= resort.name %>
   <%= resort.website %>
   <%= resort.lat %>
   <%= resort.lng %>
+  <%= resort.description %>
 <% }) %>
