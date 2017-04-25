@@ -29,92 +29,77 @@ Country
     {
       region: 'Europe',
       country: 'Austria',
-      image: 'images/Austria.png'
+      image: 'images/.png',
+      resorts: [
+        {
+          name: 'Kitzbühel',
+          website: 'https://www.kitzbuehel.com/en',
+          lat: 47.4363937,
+          lng: 12.3551052,
+          description: 'Kitzbühel is a small Alpine town east of Innsbruck, in the western Austrian province of Tyrol. It\'s a fashionable winter resort, known for the annual Hahnenkamm downhill race. Upscale shops and cafes line the streets of its medieval center. Museum Kitzbühel chronicles the history of the town and the area’s winter sports, with paintings by local artist Alfons Walde. Its rooftop terrace has sweeping town views.'
+        }
+      ]
+    },
+    {
+      region: 'Europe',
+      country: 'Andorra',
+      image: 'images/.png',
+      resorts: [
+        {
+          name: 'El Pas de la Casa',
+          website: 'https://www.pasdelacasa.com',
+          lat: 42.542445,
+          lng: 1.7281864,
+          description: 'The ski resort of Pas de la Casa sits below the pass on the side closest to France, and below the Pic d\'Envalira (2,827 metres (9,275 ft)). It\'s first ski lift was opened in 1957 and it now has 31 lifts, 100 kilometres (62 mi) of pistes and 6.26 square kilometres (2 sq mi) of skiable terrain. The highest skiable point is 2,640 metres (8,661 ft). Its popularity has grown with the burgeoning ski and snowboard industry in the principality: it is the highest resort in Andorra,[citation needed] has the best snow record,[1] and is the easiest to get to from Barcelona or Toulouse airports.'
+        }
+      ]
     },
     {
       region: 'Europe',
       country: 'France',
-      image: 'images/France.png'
-    },
-    {
-      region: 'Europe',
-      country: 'Germany',
-      image: 'images/Germany.png'
+      image: 'images/.png',
+      resorts: [
+        {
+          name: 'El Pas de la Casa',
+          website: 'https://www.pasdelacasa.com',
+          lat: 42.542445,
+          lng: 1.7281864,
+          description: 'The ski resort of Pas de la Casa sits below the pass on the side closest to France, and below the Pic d\'Envalira (2,827 metres (9,275 ft)). It\'s first ski lift was opened in 1957 and it now has 31 lifts, 100 kilometres (62 mi) of pistes and 6.26 square kilometres (2 sq mi) of skiable terrain. The highest skiable point is 2,640 metres (8,661 ft). Its popularity has grown with the burgeoning ski and snowboard industry in the principality: it is the highest resort in Andorra,[citation needed] has the best snow record,[1] and is the easiest to get to from Barcelona or Toulouse airports.'
+        }
+      ]
     },
     {
       region: 'Europe',
       country: 'Italy',
-      image: 'images/Italy.png'
-    },
-    {
-      region: 'Europe',
-      country: 'Spain',
-      image: 'images/Spain.png'
-    },
-    {
-      region: 'Europe',
-      country: 'Switzerland',
-      image: 'images/Switzerland.png'
+      image: 'images/.png',
+      resorts: [
+        {
+          name: 'Sauze d\'Oulx',
+          website: 'https://www.sauzeonline.com/',
+          lat: 45.0273981,
+          lng: 6.8442727,
+          description: 'Sauze d\'Oulx is a town and comune in the province of Turin, Piedmont located 80 kilometres from Turin in the Val di Susa, at the foot of Monte Genevris. It was the site of the freestyle skiing events of the 2006 Olympic Winter Games.'
+        }
+      ]
     },
     {
       region: 'North America',
       country: 'Canada',
-      image: 'images/Canada.png'
-    },
-    {
-      region: 'North America',
-      country: 'United States',
-      image: 'images/USA.png'
-    },
-    {
-      region: 'South America',
-      country: 'Argentina',
-      image: 'images/Argentina.png'
-    },
-    {
-      region: 'South America',
-      country: 'Chile',
-      image: 'images/Chile.png'
-    },
-    {
-      region: 'Asia',
-      country: 'China',
-      image: 'images/China.png'
-    },
-    {
-      region: 'Asia',
-      country: 'India',
-      image: 'images/India.png'
-    },
-    {
-      region: 'Asia',
-      country: 'Japan',
-      image: 'images/Japan.png'
-    },
-    {
-      region: 'Asia',
-      country: 'South Korea',
-      image: 'images/South-korea.png'
-    },
-    {
-      region: 'Asia',
-      country: 'Kyrgyzstan',
-      image: 'images/Kyrgyzstan.png'
-    },
-    {
-      region: 'Oceania',
-      country: 'Australia',
-      image: 'images/Australia.png'
-    },
-    {
-      region: 'Oceania',
-      country: 'New Zealand',
-      image: 'images/New-Zealand.png'
+      image: 'images/.png',
+      resorts: [
+        {
+          name: 'Banff',
+          website: 'https://www.banfflakelouise.com/',
+          lat: 51.1769288,
+          lng: -115.6034089,
+          description: 'Banff is a resort town in the province of Alberta, located within Banff National Park. The peaks of Mt. Rundle and Mt. Cascade, part of the Rocky Mountains, dominate its skyline. On Banff Avenue, the main thoroughfare, boutiques and restaurants mix with château-style hotels and souvenir shops. The surrounding 6,500 square kilometres of parkland are home to wildlife including elk and grizzly bears.'
+        }
+      ]
     }
   ])
   .then(countries => {
     console.log(`${countries.length} were created`);
-    return getSkiAreas();
+    // return getSkiAreas();
   })
   .catch(err => {
     console.log(`Error: ${err}`);
@@ -123,88 +108,88 @@ Country
     // mongoose.connection.close();
   });
 
-const geocoder = require('node-geocoder')('google', 'https', {timeout: 3000});
-let counter = 0;
-
-// Can improve...
-function getSkiAreas() {
-  return rp({
-    url: 'https://skimap.org/SkiAreas/index.json',
-    json: true
-  })
-  .then(resorts => {
-    return Promise.map(resorts, resort => {
-      const lat = resort['SkiArea'].geo_lat;
-      const lng = resort['SkiArea'].geo_lng;
-      return findCountryAndSave(lat, lng, resort);
-    });
-  })
-  .then(countries => {
-    console.log(`${countries.length} were updated`);
-  })
-  .catch(err => {
-    console.log(err);
-  });
-}
-
-function findCountryAndSave(lat, lng, resort) {
-  if (!lat || !lng) return false;
-  counter++;
-
-  // Something going on with return setTimout
-  console.log('Reversing...', lat, lng, resort);
-  delay(counter)
-    .then(() => {
-      console.log('AFTER WAITING');
-      geocoder
-        .reverse({ lat: lat, lon: lng })
-        .then(data => {
-          if (!data[0].country) {
-            console.log('NO COUNTRY');
-            return;
-          } else {
-            console.log('Country', data[0].country);
-          }
-
-          Country
-            .findOne({ country: data[0].country })
-            .exec()
-            .then(country => {
-              if (!country) {
-                console.log('NO country found?');
-                return;
-              }
-
-              console.log(`Updating ${country.country}`);
-
-              country.resorts.addToSet({
-                name: resort['SkiArea']['name'],
-                website: resort['SkiArea']['official_website'],
-                lat: resort['SkiArea']['geo_lat'],
-                lng: resort['SkiArea']['geo_lng']
-              });
-
-              return country.save();
-            })
-            .catch(err => {
-              console.log(err);
-            });
-        });
-    });
-}
-
-function delay(count) {
-  let ctr, rej;
-
-  const p = new Promise(function (resolve, reject) {
-    ctr = setTimeout(resolve, 500*count);
-    rej = reject;
-  });
-
-  p.cancel = function(){
-    clearTimeout(ctr);
-    rej(Error('Cancelled'));
-  };
-
-  return p;
-}
+// const geocoder = require('node-geocoder')('google', 'https', {timeout: 3000});
+// let counter = 0;
+//
+// // Can improve...
+// function getSkiAreas() {
+//   return rp({
+//     url: 'https://skimap.org/SkiAreas/index.json',
+//     json: true
+//   })
+//   .then(resorts => {
+//     return Promise.map(resorts, resort => {
+//       const lat = resort['SkiArea'].geo_lat;
+//       const lng = resort['SkiArea'].geo_lng;
+//       counter++;
+//       return findCountryAndSave(lat, lng, resort, counter);
+//     });
+//   })
+//   .then(countries => {
+//     console.log(`${countries.length} were updated`);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+// }
+//
+// function findCountryAndSave(lat, lng, resort, counter) {
+//   if (!lat || !lng) return false;
+//   // Something going on with return setTimout
+//   // console.log('Reversing...', lat, lng, resort);
+//   delay(counter)
+//     .then(() => {
+//       console.log('AFTER WAITING');
+//       geocoder
+//         .reverse({ lat: lat, lon: lng })
+//         .then(data => {
+//           if (!data[0].country) {
+//             console.log('NO COUNTRY');
+//             return;
+//           } else {
+//             console.log('Country', data[0].country);
+//           }
+//
+//           Country
+//             .findOne({ country: data[0].country })
+//             .exec()
+//             .then(country => {
+//               if (!country) {
+//                 console.log('NO country found?');
+//                 return;
+//               }
+//
+//               console.log(`Updating ${country.country}`);
+//
+//               country.resorts.addToSet({
+//                 name: resort['SkiArea']['name'],
+//                 website: resort['SkiArea']['official_website'],
+//                 lat: resort['SkiArea']['geo_lat'],
+//                 lng: resort['SkiArea']['geo_lng']
+//               });
+//
+//               console.log('Count', counter);
+//               return country.save();
+//             })
+//             .catch(err => {
+//               console.log(err);
+//             });
+//         });
+//     });
+// }
+//
+// function delay(count) {
+//   let ctr, rej;
+//
+//   const p = new Promise(function (resolve, reject) {
+//     ctr = setTimeout(resolve, 500*count);
+//     rej = reject;
+//   });
+//
+//   p.cancel = function(){
+//     clearTimeout(ctr);
+//     rej(Error('Cancelled'));
+//   };
+//
+//   return p;
+// }

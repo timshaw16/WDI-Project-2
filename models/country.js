@@ -9,6 +9,7 @@ const countrySchema = new mongoose.Schema({
   resorts: [{
     name: { type: String, trim: true },
     website: { type: String, trim: true },
+    description: { type: String, trim: true },
     lat: { type: String, trim: true },
     lng: { type: String, trim: true }
   }]
