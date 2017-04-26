@@ -1,8 +1,8 @@
-<h2><%= country.country %></h2>
-<p><%= country.region %></p>
+<h2 class="country-header"><%= country.country %></h2>
+<p class="country-region"><%= country.region %></p>
 <img src="/<%= country.image %>">
 
-<h2>Resorts</h2>
+<h2 class="resorts-header">Resort Information</h2>
 <% country.resort.forEach(resort => { %>
   <%= resort.name %>
   <%= resort.website %>

@@ -26,8 +26,8 @@ h2, p, ul {
 
 h2 {
   font-size: 30px;
-
 }
+
 
 // ******************************* NAV BAR ************************************
 // nav black line
@@ -180,7 +180,7 @@ span {
 // ******************************REG/LOGIN FORMS***********************************
 .reg-form {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 .reg-form-group {
@@ -188,17 +188,26 @@ span {
 }
 
 input#username.form-control {
-  margin-right: 50px;
+  width: 30%;
+  padding: 5px;
+}
+input#email.form-control {
+  width: 30%;
+  padding: 5px;
 }
 input#password.form-control {
-  margin-right: 44px;
+  width: 30%;
+  padding: 5px;
 }
 input#passwordConfirmation.form-control {
-  margin-right: 181px;
+  width: 30%;
+  padding: 5px;
 }
 
 label {
   font-family: Ormont_Light,Fallback,sans-serif;
+  font-size: 20px;
+  display: block;
 }
 
 .reg-btn {
@@ -216,13 +225,13 @@ label {
 }
 
 .regOpacForm {
-  background-color: rgba(0, 0, 0, .2);
-  color: white;
+  background-color: rgba(0,0,0,.2);
+  color: #fff;
   width: 60%;
   margin: 0 auto;
   height: 300px;
-  opacity: 0.8;
-  padding-top: 10px;
+  opacity: .8;
+  padding-top: 10px
 }
 
 .reg-header {
@@ -273,9 +282,50 @@ margin-top: 60px;
 
 .login-form {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
-.login-email-form-control {
-  margin-bottom: 8px;
+.login-form-control {
+  width: 30%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+// ***********************Country Pages*************************
+.country-header {
+  border: 2px solid black;
+  width: 15%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  margin-bottom: -6px;
+}
+
+.country-region {
+  border: 2px solid black;
+  width: 15%;
+  padding: 7px;
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.resorts-header {
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 30%;
+  text-align: center;
+}
+
+.index-region-header {
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 90%;
+  text-align: center;
 }

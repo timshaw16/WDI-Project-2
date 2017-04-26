@@ -1,9 +1,9 @@
-<%# <body background="/images/bg-image3.jpg">%>
+<body background="/images/bg-image3.jpg">
 
 <ul>
   <% Object.keys(countries).forEach(region => { %>
     <li>
-      <h2><%= region %></h2>
+      <h2 class= "index-region-header"><%= region %></h2>
       <ul>
         <% countries[region].forEach(country => { %>
           <li><a href="/countries/<%= country.id %>"><%= country.country %></a></li>
