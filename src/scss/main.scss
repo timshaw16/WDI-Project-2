@@ -118,6 +118,12 @@ li.nav-login-homepage {
   text-align: center;
   display: inline-block;
   background-color: black;
+  float: right;
+  margin: 6px 0 3px 0;
+  display: block;
+  margin: 7px;
+  line-height: 30px;
+  display: table-cell;
 }
 
 .nav-link-login {
@@ -131,8 +137,19 @@ li.nav-login-homepage {
   text-align: center;
   display: inline-block;
   background-color: black;
+  float: right;
+  margin: 6px 0 3px 0;
+  display: block;
+  margin: 7px;
+  line-height: 30px;
+  display: table-cell;
 }
 
 .nav-link-register {
   color: white;
+}
+
+.form-group {
+  display: block;
+  margin-bottom: 20px;
 }
