@@ -3,6 +3,17 @@
   src: local(Ormont_Light), url('www.tjshaw.co.uk/font/Ormont_Light.ttf') format('opentype');
 }
 
+video {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+
 body {
   background-position: center top;
   background-size: 100% auto;
@@ -10,12 +21,16 @@ body {
 
 h2, p, ul {
   font-family: 'Ormont_Light', Fallback, sans-serif;
+  list-style: none;
 }
 
 h2 {
   font-size: 30px;
+
 }
 
+// ******************************* NAV BAR ************************************
+// nav black line
 .line {
   background-color: black;
   margin-left: -10px;
@@ -23,18 +38,100 @@ h2 {
   padding: 4px;
 }
 
+.nav-login {
+  border: 11px solid #000;
+  width: 7%;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  background-color: #000;
+  float: right;
+  margin: -2px 0 0 10px;
+  display: block;
+  /* margin: 7px; */
+  line-height: 30px;
+  display: table-cell;
+}
+
+.nav-logout {
+  border: 11px solid #000;
+  width: 7%;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  background-color: #000;
+  float: right;
+  margin: -2px 0 0 10px;
+  display: block;
+  /* margin: 7px; */
+  line-height: 30px;
+  display: table-cell;
+}
+
+.nav-register {
+  border: 11px solid #000;
+  width: 7%;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  background-color: #000;
+  float: right;
+  margin: -2px 0 0 0px;
+  display: block;
+  /* margin: 7px; */
+  line-height: 30px;
+  display: table-cell;
+}
+
+.nav-countries {
+  border: 11px solid #000;
+  width: 7%;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  background-color: #000;
+  float: right;
+  margin: -2px 0 0 0px;
+  display: block;
+  /* margin: 7px; */
+  line-height: 30px;
+  display: table-cell;
+}
+
+.nav-link-login {
+  color: white;
+}
+
+.nav-link-register {
+  color: white;
+}
+
+.nav-link-countries {
+  color: white;
+}
+
+.nav-link-logout {
+  color: white;
+}
+
+ul.navbar-nav.mr-auto {
+  display: inline;
+}
+
+// SnowFo logo
 h1 {
   font-family: Ormont_Light,Fallback,sans-serif;
   background-color: #000;
   color: #fff;
   font-size: 50px;
+  text-align: center;
   margin-right: 1115px;
   margin-left: -21px;
   margin-top: -5px;
   padding-left: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 17px;
+  // border-radius: 17px;
 }
 
 .header {
@@ -44,23 +141,6 @@ h1 {
 
 a {
   text-decoration: none;
-}
-
-label {
-  font-family: Ormont_Light,Fallback,sans-serif;
-}
-
-form {
-  background-color: #000;
-  margin: auto;
-  width: 40%;
-  padding: 50px;
-  color: #fff;
-  text-align: center;
-}
-
-.btn-primary {
-  font-family: Ormont_Light,Fallback,sans-serif;
 }
 
 span.front-para {
@@ -73,27 +153,7 @@ span.front-para {
   margin-right: -15px;
 }
 
-video {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-}
-
-ul.navbar-nav.mr-auto {
-  display: inline;
-}
-
-a.foot-link {
-  text-decoration: none;
-  color: white;
-  padding-left: 10px;
-}
-
+// *********************FOOTER***************************
 footer {
   position:fixed;
   bottom:0;
@@ -107,49 +167,115 @@ footer {
   font-size: 15px;
 }
 
+a.foot-link {
+  text-decoration: none;
+  color: white;
+  padding-left: 10px;
+}
+
 span {
   float: right;
 }
 
-li.nav-login-homepage {
-  border: 2px solid black;
-  width: 7%;
-  height: 30px;
+// ******************************REG/LOGIN FORMS***********************************
+.reg-form {
   text-align: center;
-  display: inline-block;
+  margin-top: 50px;
+}
+
+.reg-form-group {
+  padding: 5px;
+}
+
+input#username.form-control {
+  margin-right: 50px;
+}
+input#password.form-control {
+  margin-right: 44px;
+}
+input#passwordConfirmation.form-control {
+  margin-right: 181px;
+}
+
+label {
+  font-family: Ormont_Light,Fallback,sans-serif;
+}
+
+.reg-btn {
   background-color: black;
-  float: right;
-  margin: 6px 0 3px 0;
-  display: block;
-  margin: 7px;
-  line-height: 30px;
-  display: table-cell;
-}
-
-.nav-link-login {
+  // border-radius: 10px;
+  font-size: 15px;
   color: white;
+  font-family: Ormont_Light,Fallback,sans-serif;
+  width: 15%;
+  padding: 5px;
+  display: table-cell;
+  line-height: 20px;
+  margin-top: 10px;
+  border-color: black;
 }
 
-.nav-register {
-  border: 2px solid black;
-  width: 7%;
-  height: 30px;
+.regOpacForm {
+  background-color: rgba(0, 0, 0, .2);
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+  height: 300px;
+  opacity: 0.8;
+  padding-top: 10px;
+}
+
+.reg-header {
+margin-left: 290px;
+border: 2px solid black;
+padding: 6px;
+background-color: black;
+color: white;
+width: 13%;
+text-align: center;
+margin-top: 60px;
+}
+
+.loginOpacForm {
+  background-color: rgba(0, 0, 0, .2);
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+  height: 300px;
+  opacity: 0.8;
+  padding-top: 10px;
+}
+
+.login-header {
+margin-left: 290px;
+border: 2px solid black;
+padding: 6px;
+background-color: black;
+color: white;
+width: 13%;
+text-align: center;
+margin-top: 60px;
+}
+
+.login-btn {
+  background-color: black;
+  // border-radius: 10px;
+  font-size: 15px;
+  color: white;
+  font-family: Ormont_Light,Fallback,sans-serif;
+  width: 15%;
+  padding: 5px;
+  display: table-cell;
+  line-height: 20px;
+  margin-top: 10px;
+  border-color: black;
+}
+
+.login-form {
   text-align: center;
-  display: inline-block;
-  background-color: black;
-  float: right;
-  margin: 6px 0 3px 0;
-  display: block;
-  margin: 7px;
-  line-height: 30px;
-  display: table-cell;
+  margin-top: 50px;
 }
 
-.nav-link-register {
-  color: white;
-}
-
-.form-group {
-  display: block;
-  margin-bottom: 20px;
+.login-email-form-control {
+  margin-bottom: 8px;
 }
