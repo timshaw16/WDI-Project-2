@@ -5,46 +5,49 @@
   <meta charset="utf-8">
   <title>SnowFo</title>
   <link rel="stylesheet" href="/css/main.css">
+  <%# <link rel="icon" href="src/images/favicon.jpg" type="image/x-icon">%>
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
   <script src="/js/client.js" charset="utf-8"></script>
+
 </head>
 <body>
   <header>
     <ul class="navbar-nav mr-auto">
       <% if (locals.isLoggedIn) { %>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+        <li class="nav-logout">
+        <a class="nav-link-logout" href="/logout">Logout</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/countries">Countries</a>
+        <li class="nav-countries">
+        <a class="nav-link-countries" href="/countries">Countries</a>
         </li>
-      <% } else { %>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/register">Register</a>
-        </li>
-      <% } %>
-    </ul>
-  </header>
-  <div class="line"></div>
-
+        <% } else { %>
+          <li class="nav-login-homepage">
+          <a class="nav-link-login" href="/login">Log In</a>
+          </li>
+          <li class="nav-register">
+          <a class="nav-link-register" href="/register">Register</a>
+          </li>
+          <% } %>
+        </ul>
+      </header>
+      <div class="line"></div>
       <h1><a class="header" href="/">SnowFo</a></h1>
-
-
-  <main class="container">
-    <% for (const type in messages) { %>
-      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
-    <% } %>
-
-    <%- body %>
-  </main>
-  <footer>
-    <p>facebook | twitter | instagram <span>&copy tjshaw.co.uk</span></p>
-  </footer>
-</body>
-</html>
+      <main class="container">
+        <% for (const type in messages) { %>
+          <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+          <% } %>
+          <%- body %>
+        </main>
+        <footer>
+          <p>
+            <a class="foot-link" href="http://www.facebook.com/tjshawwd">Facebook</a> |
+            <a class="foot-link" href="http://www.twitter.com/tjshawwd">Twitter</a> |
+            <a class="foot-link" href="http://www.instagram.com/tjshawwd">instagram</a>
+            <span>&copy tjshaw.co.uk</span>
+          </p>
+        </footer>
+      </body>
+      </html>

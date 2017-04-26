@@ -18,11 +18,10 @@ function sessionsCreate(req, res) {
 
       req.session.userId = user.id;
 
-      req.flash('info', `Welcome back, ${user.username}!`);
+      req.flash('info', `Hey, ${user.username}!`);
       res.redirect('/countries');
     });
 }
-
 
 function sessionsDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));

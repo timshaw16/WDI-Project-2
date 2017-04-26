@@ -1,3 +1,11 @@
+<%# <body background="/images/bg-image2.jpg">%>
+
+<div id="video-overlay">
+<%# <video id="bgvid" loop muted autoplay>
+<source src="http://tjshaw.co.uk/video/ski-login.mp4" type="video/mp4">
+</video>%>
+</div>
+
 <h2>Login</h2>
 
 
@@ -5,6 +13,7 @@
   <p><%= message %></p>
 <% } %>
 
+<div class="login">
 <form method="POST" action="/login">
   <div class="form-group">
     <label for="email">Email</label>
@@ -13,7 +22,10 @@
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" name="password" id="password" class="form-control">
+    <button class="btn btn-primary">Login</button>
+
+  </div>
   </div>
 
-  <button class="btn btn-primary">Login</button>
 </form>
+</body>

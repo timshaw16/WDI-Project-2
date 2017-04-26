@@ -15,7 +15,7 @@ Country.collection.drop();
 
 User
 .create([{
-  username: 'admin',
+  username: 'Tim',
   email: 'tshaw2008@icloud.com',
   password: 'password',
   passwordConfirmation: 'password'
@@ -60,7 +60,7 @@ Country
       image: 'images/.png',
       resort: [
         {
-          name: 'valmeinier',
+          name: 'Valmeinier',
           website: 'http://www.valmeinier.com/uk/index-winter.aspx',
           lat: 45.1512076,
           lng: 6.4389113,

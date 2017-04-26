@@ -1,17 +1,26 @@
 @font-face {
-      font-family: Ormont_Light;
-      src: local(Ormont_Light), url('www.tjshaw.co.uk/font/Ormont_Light.ttf') format('opentype');
+  font-family: Ormont_Light;
+  src: local(Ormont_Light), url('www.tjshaw.co.uk/font/Ormont_Light.ttf') format('opentype');
 }
 
- h2, p, ul {
+body {
+  background-position: center top;
+  background-size: 100% auto;
+}
+
+h2, p, ul {
   font-family: 'Ormont_Light', Fallback, sans-serif;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 .line {
-background-color: black;
-margin-left: -10px;
-margin-right: -10px;
-padding: 4px;
+  background-color: black;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 4px;
 }
 
 h1 {
@@ -32,14 +41,36 @@ h1 {
   color: white;
   text-decoration: none;
 }
-a.header {
-  color: white;
-  text-decoration: none;
-}
 
 a {
   text-decoration: none;
-  color: black;
+}
+
+label {
+  font-family: Ormont_Light,Fallback,sans-serif;
+}
+
+form {
+  background-color: #000;
+  margin: auto;
+  width: 40%;
+  padding: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+.btn-primary {
+  font-family: Ormont_Light,Fallback,sans-serif;
+}
+
+span.front-para {
+  font-family: Ormont_Light,Fallback,sans-serif;
+  background-color: black;
+  color: white;
+  padding: 4px;
+  font-size: 50px;
+  margin-top: 270px;
+  margin-right: -15px;
 }
 
 video {
@@ -55,7 +86,12 @@ video {
 
 ul.navbar-nav.mr-auto {
   display: inline;
+}
 
+a.foot-link {
+  text-decoration: none;
+  color: white;
+  padding-left: 10px;
 }
 
 footer {
@@ -75,24 +111,28 @@ span {
   float: right;
 }
 
+li.nav-login-homepage {
+  border: 2px solid black;
+  width: 7%;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  background-color: black;
+}
 
+.nav-link-login {
+  color: white;
+}
 
-// li.nav-item {
-//   background-color: ;
-//   color: white;
-// }
+.nav-register {
+  border: 2px solid black;
+  width: 7%;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  background-color: black;
+}
 
-
-
-
-// #video-overlay {
-//   position: fixed;
-//   top: 0%;
-//   left: 0%;
-//   min-width: 100%;
-//   min-height: 100%;
-//   width: auto;
-//   height: auto;
-//   z-index: -100;
-//   background-color:#000;
-// }
+.nav-link-register {
+  color: white;
+}
