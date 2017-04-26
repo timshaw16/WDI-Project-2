@@ -1,20 +1,13 @@
-<%# <body background="/images/bg-image2.jpg">%>
-.
-<div id="video-overlay">
-<video id="bgvid" loop muted autoplay>
-<%# <source src="">%>
-</video>
-</div>
+<%# <body background="images/bg-image2.jpg">%>
+
 
 <h2 class="login-header">Login</h2>
-
 
 <% if (locals.message) { %>
   <p><%= message %></p>
 <% } %>
 
 <div class="loginOpacForm"><div>
-
 <form class="login-form" method="POST" action="/login">
   <div class="login-form-group">
     <label for="email">Email</label>
@@ -25,6 +18,5 @@
     <input type="password" name="password" id="password" class="form-control">
   </div>
       <button class="login-btn">Login</button>
-
 </form>
 </body>
