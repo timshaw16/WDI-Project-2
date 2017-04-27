@@ -231,7 +231,8 @@ label {
   margin: 0 auto;
   height: 300px;
   opacity: .8;
-  padding-top: 10px
+  padding-top: 10px;
+  border-radius: 10px;
 }
 
 .reg-header {
@@ -253,6 +254,7 @@ margin-top: 60px;
   height: 300px;
   opacity: 0.8;
   padding-top: 10px;
+  border-radius: 10px;
 }
 
 .login-header {
@@ -328,4 +330,70 @@ margin-top: 60px;
   padding: 10px;
   width: 90%;
   text-align: center;
+}
+
+// ******************* Adding Resort ******************************
+.resort-new-header {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 30%;
+  text-align: center;
+}
+
+.newResortOpacForm {
+  background-color: rgba(0, 0, 0, .2);
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+  height: 375px;
+  opacity: 0.8;
+  padding-top: 10px;
+  border-radius: 10px;
+}
+
+.new-form {
+  text-align: center;
+  padding-top: 45px;
+}
+
+input#resortName.form-control {
+  width: 50%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+input#country.form-control {
+  width: 50%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+textarea#description.form-control {
+  width: 50%;
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.new-btn {
+  background-color: black;
+  // border-radius: 10px;
+  font-size: 15px;
+  color: white;
+  font-family: Ormont_Light,Fallback,sans-serif;
+  width: 15%;
+  padding: 5px;
+  display: table-cell;
+  line-height: 20px;
+  margin-top: 10px;
+  border-color: black;
+}
+
+add-resort-index-header  {
+  text-align: center;
+    background-color: black;
+    color: white;
+    width: 20%;
+    padding: 10px;
+    display: inline-block;
 }
