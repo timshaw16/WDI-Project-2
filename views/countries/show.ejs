@@ -1,16 +1,14 @@
-<h2 class="country-header"><%= country.country %></h2>
-<p class="country-region"><%= country.region %></p>
-<img src="/<%= country.image %>">
 
 <h2 class="resorts-header">Resort Information</h2>
+<%# <div class="resortOpacBg"><div>%>
 <ul>
   <% country.resort.forEach(resort => { %>
     <li class="country-resort">
-      <h4><%= resort.name %></h4>
-      <h6><%= resort.website %></h6>
+    <p data-lat="<%= resort.lat %>" data-lng="<%= resort.lng %>" class="weather">Current Weather: <span class="display-weather">Loading...</span></p>
+      <h4 class="resort-name"><%= resort.name %></h4>
+      <h6 class="resort-website"><%= resort.website %></h6>
       <h6><%= resort.lat %> <%= resort.lng %></h6>
-      <p><%= resort.description %></p>
-      <p data-lat="<%= resort.lat %>" data-lng="<%= resort.lng %>" class="weather">Current Weather: <span>Loading...</span></p>
+      <p class="resort-description"><%= resort.description %></p>
     </li>
   <% }) %>
 </ul>
