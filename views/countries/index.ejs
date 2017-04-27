@@ -1,13 +1,13 @@
-<%# <body background="/images/bg-image3.jpg">%>
+<body background="/images/bg-image3.jpg">
 
-<h2 class="add-resort-index-header"><a href="countries/new"></a>Add Resort</h2>
+<h2 class="add-resort-index-header"><a class="add-resort-link" href="countries/new">Add Resort</a></h2>
 <ul>
   <% Object.keys(countries).forEach(region => { %>
     <li>
       <h2 class= "index-region-header"><%= region %></h2>
-      <ul>
+      <ul class="country-ul">
         <% countries[region].forEach(country => { %>
-          <li><a href="/countries/<%= country.id %>"><%= country.country %></a></li>
+          <li class="countries-li"><a class="countries-li-link" href="/countries/<%= country.id %>"><%= country.country %></a></li>
         <% }); %>
       </ul>
     </li>

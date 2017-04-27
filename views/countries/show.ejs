@@ -1,14 +1,16 @@
-
+<%# <body background="/images/bg-image3.jpg">%>
 <h2 class="resorts-header">Resort Information</h2>
 <%# <div class="resortOpacBg"><div>%>
 <ul>
   <% country.resort.forEach(resort => { %>
     <li class="country-resort">
-    <p data-lat="<%= resort.lat %>" data-lng="<%= resort.lng %>" class="weather">Current Weather: <span class="display-weather">Loading...</span></p>
+      <p data-lat="<%= resort.lat %>" data-lng="<%= resort.lng %>" class="weather">Current Weather:</p>
+      <p class="display-weather">Loading...</p>
       <h4 class="resort-name"><%= resort.name %></h4>
       <h6 class="resort-website"><%= resort.website %></h6>
-      <h6><%= resort.lat %> <%= resort.lng %></h6>
       <p class="resort-description"><%= resort.description %></p>
+      <h4 class="flickr">Flickr</h4>
+      <div class="photoContainer"></div>
     </li>
   <% }) %>
 </ul>

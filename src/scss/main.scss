@@ -1,3 +1,5 @@
+// @import 'grid';
+
 @font-face {
   font-family: Ormont_Light;
   src: local(Ormont_Light), url('www.tjshaw.co.uk/font/Ormont_Light.ttf') format('opentype');
@@ -26,9 +28,24 @@ h2, p, ul {
 
 h2 {
   font-size: 30px;
+  font-family: 'Ormont_Light', Fallback, sans-serif;
 }
 
+.alert.alert-info {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 10%;
+  text-align: center;
+}
 
+.alert.alert-danger {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 31%;
+  margin-left: -10px;
+}
 // ******************************* NAV BAR ************************************
 // nav black line
 .line {
@@ -156,10 +173,11 @@ span.front-para {
 // *********************FOOTER***************************
 footer {
   position:fixed;
-  bottom:0;
+  clear: both;
+  bottom: 0px;
   left:0;
   right:0;
-  height:40px;
+  height:30px;
   background-color: black;
   color: white;
   padding-bottom: 10px;
@@ -225,7 +243,7 @@ label {
 }
 
 .regOpacForm {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,.5);
   color: #fff;
   width: 60%;
   margin: 0 auto;
@@ -247,7 +265,7 @@ margin-top: 60px;
 }
 
 .loginOpacForm {
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, .5);
   color: white;
   width: 60%;
   margin: 0 auto;
@@ -321,15 +339,20 @@ margin-top: 60px;
   padding: 10px;
   width: 30%;
   text-align: center;
+  margin-left: -10px;
 }
 
 .index-region-header {
-  border: 2px solid black;
-  background-color: black;
-  color: white;
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
   padding: 10px;
-  width: 90%;
+  width: 85%;
   text-align: center;
+}
+
+.add-resort-link {
+  color: white;
 }
 
 .resort-name {
@@ -345,14 +368,81 @@ margin-top: 60px;
   background-color: black;
   color: white;
   padding: 10px;
-  width: 17%;
+  width: 20%;
   margin-top: -28px;
 }
  .resort-description {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,.5);
   color: white;
   padding: 20px;
   width: 40%;
+  border-radius: 10px;
+ }
+
+ .photoContainer img {
+   width: 150px;
+   height: 150px;
+   padding: 10px;
+ }
+
+ .photoContainer {
+   background-color: rgba(0,0,0,.5);
+   padding: 10px;
+   width: 51%;
+   float: right;
+   margin-top: -210px;
+   margin-right: 20px;
+   border-radius: 10px;
+ }
+
+ .flickr {
+   float: right;
+   margin-top: -250px;
+   margin-right: 670px;
+   background-color: #000;
+   color: #fff;
+   padding: 10px;
+ }
+
+ .weather {
+   background-color: black;
+   color: white;
+   padding: 10px;
+   width: 13%;
+   margin-left: 1116px;
+ }
+
+ .display-weather {
+   background-color: rgba(0,0,0,.5);
+   color: white;
+   padding: 10px;
+   width: 20%;
+   text-align: center;
+   margin-left: 1067px;
+   margin-top: -10px;
+   border-radius: 10px;
+ }
+
+ .country-ul {
+   display: inline-flex;
+ }
+
+ .countries-li {
+  background-color: rgba(0, 0, 0, .5);
+  width: 180px;
+  height: 165px;
+  margin-right: 10px;
+ }
+
+ .countries-li:hover {
+   background-color: black;
+   font-size: 182px;
+ }
+
+ .countries-li-link {
+   color: white;
+   font-size: 30px;
+   padding-left: 20px;
  }
 
 
@@ -366,7 +456,7 @@ margin-top: 60px;
 }
 
 .newResortOpacForm {
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, .5);
   color: white;
   width: 60%;
   margin: 0 auto;
@@ -415,11 +505,13 @@ textarea#description.form-control {
 
 .add-resort-index-header  {
   text-align: center;
-    background-color: black;
-    color: white;
-    width: 20%;
-    padding: 10px;
-    display: inline-block;
-    margin-left: 1090px;
-    padding-right: 50px;
+  background-color: #000;
+  color: #fff;
+  width: 20%;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 1088px;
+  margin-top: -99px;
+  padding-right: 50px;
+  margin-bottom: -28px;
 }
